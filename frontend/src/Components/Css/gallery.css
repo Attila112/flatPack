@@ -1,0 +1,24 @@
+.gallery-menu-bar{
+    color: black;
+    height: 30px;
+    width: 100%;
+    background-color: white;
+}
+.gallery-menu-buttons{
+    border: solid black;
+    border-width: 0 3px 3px 0;
+    display: inline-block;
+    padding: 3px;
+}
+.gallery-menu-buttons-left{
+    text-align: left;
+    float: left;
+    margin-left: 30px;
+    /*transform: rotate(135deg);*/
+}
+.gallery-menu-buttons-right{
+    text-align: right;
+    float: right;
+    margin-right: 30px;
+    /*transform: rotate(-45deg);*/
+}
