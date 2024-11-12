@@ -40,7 +40,7 @@ To install and run the project locally, follow these steps:
 
 ```bash
 # Clone this repository
-git clone https://github.com/Attila112/flatPack
+git clone https://github.com/Attila112/flatPack.git
 
 ```
 ## Database
