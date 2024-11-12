@@ -13,10 +13,6 @@ This project is a real estate search platform with a PHP Laravel backend and a R
   - [Frontend](#frontend)
   - [Backend](#backend)
   - [Usage](#usage)
-  - [Docker Setup](#docker-setup)
-  - [Screenshots](#screenshots)
-    - [Pokémon Battle](#pokémon-battle)
-  - [API Information](#api-information)
   - [Contributors](#contributors)
   - [License](#license)
 
@@ -44,7 +40,7 @@ To install and run the project locally, follow these steps:
 
 ```bash
 # Clone this repository
-git clone https://github.com/CodecoolGlobal/el-proyecte-grande-design-general-MilanEgri.git
+git clone https://github.com/Attila112/flatPack
 
 ```
 ## Database
@@ -55,7 +51,7 @@ Rename .env.example file to .env inside your project root and fill the database 
 
 ```bash
 # Go to your local folder
-cd {local_folder_of_cloned_project/frontend}
+cd {flatPack/frontend}
 
 # Install dependencies
 npm i
@@ -71,7 +67,7 @@ npm run dev
 
 ```bash
 # Go to your local folder
-cd {local_folder_of_cloned_project/backend}
+cd {flatPack/backend}
 
 # Install dependencies
 composer install
