@@ -17,7 +17,26 @@ class PropertyController extends Controller
 
     public function getAllProperties()
     {
+            // $property = new Property([  'title' => "aaa",
+            // 'user_id' => 1,
+            // 'description' => "aa",
+            // 'size' => 112,
+            // 'city' => "aaaa",
+            // 'street' => "aaaa",
+            // 'house_number' => 12,
+            // 'rooms' => 1,
+            // 'bathroom_count' => 1,
+            // 'floor' => 1,
+            // 'building_material' => "aaaa",
+            // 'type' => "aaa",
+            // 'plot_size' => 12,
+            // 'garage' => true,
+            // 'facing' => "aa",
+            // 'price' => 111111,
+            // 'hasPicture' => false]);
+            // $property->save();
             $properties = $this->propertyService->getAll();
+            var_dump($properties);
             if($properties){
                 return response()->json([
                     'success' => true,
@@ -36,13 +55,15 @@ class PropertyController extends Controller
     {
 
            $properties = $this->propertyService->search($request);
+           $properties = $properties->get();
 
+          
             $numberOfGetProperties = 9;
             $pageNumber = ceil($properties->count() / $numberOfGetProperties);
             $properties->paginate($numberOfGetProperties);
 
             if($properties){
-               return response()->json(['properties' => $properties->get(), 'pageNumber' => $pageNumber]);
+               return response()->json(['properties' => $properties, 'pageNumber' => $pageNumber]);
            }else{
                return response()->json([
                    'success' => false,
@@ -74,9 +95,9 @@ class PropertyController extends Controller
     public function addProperty(Request $request)
     {
 
-            $id = \auth('sanctum')->id();
+            // $id = \auth('sanctum')->id();
 
-            $property =  $this->propertyService->add($request, $id);
+            $property =  $this->propertyService->add($request, 2);
             if($property){
                 return response()->json([
                     'status' => true,
@@ -89,7 +110,7 @@ class PropertyController extends Controller
                 return response()->json([
                     'success' => false,
                     'message' => 'Property not added'
-                ],500);
+                ],404);
             }
     }
 
