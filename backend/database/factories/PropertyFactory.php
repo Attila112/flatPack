@@ -3,12 +3,14 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+// use Faker\Factory as Faker;
 
 class PropertyFactory extends Factory
 {
 
     public function definition():array
     {
+        // $faker = Faker::create();
         return [
             'title' => $this->faker->word(),
             'user_id' => $this->faker->numberBetween(1,11),
@@ -18,7 +20,7 @@ class PropertyFactory extends Factory
             'street' => $this->faker->streetName(),
             'house_number' => $this->faker->buildingNumber(),
             'rooms'=>$this->faker->numberBetween(1,5),
-            'bathroom_count' => $this ->faker->numberBetween(1,3),
+            'bathroom_count' => $this->faker->numberBetween(1,3),
             'floor'=>$this->faker->numberBetween(1,10),
             'building_material'=>$this->faker->randomElement(['brick', 'wood', 'farrow-concrete']),
             'type'=>$this->faker->randomElement(['flat', 'house']),

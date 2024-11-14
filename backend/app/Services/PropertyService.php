@@ -6,12 +6,13 @@ use App\Models\Property;
 use Illuminate\Http\Request;
 use PHPUnit\Util\Exception;
 
-class PropertyService
-{
-    public function getAll()
+    class PropertyService
     {
-           return  Property::all();
-    }
+        public function getAll()
+        {
+            var_dump(Property::all());
+            return  Property::all();
+        }
 
     public function search(Request $request){
         $title = $request->input('title');
@@ -100,19 +101,19 @@ class PropertyService
         $request->validate([
             'title' => 'required|string|max:255',
             'description' => 'required|string',
-            'size' => 'required|integer',
-            'city' => 'required|string|max:255',
-            'street' => 'required|string|max:255',
-            'house_number' => 'required|integer',
-            'rooms' => 'required|integer',
-            'bathroom_count' => 'required|integer',
-            'floor' => 'required|integer',
-            'building_material' => 'required|string|max:255',
-            'type' => 'required|string|max:255',
+            'size' => 'integer',
+            'city' => 'string|max:255',
+            'street' => 'string|max:255',
+            'house_number' => 'integer',
+            'rooms' => 'integer',
+            'bathroom_count' => 'integer',
+            'floor' => 'integer',
+            'building_material' => 'string|max:255',
+            'type' => 'string|max:255',
             'plot_size' => 'integer',
-            'garage' => 'required|boolean',
-            'facing' => 'required|string',
-            'price' => 'required|integer',
+            // 'garage' => 'required|boolean',
+            'facing' => 'string',
+            'price' => 'integer',
 //            'hasPicture' => 'required'
 
         ]);
