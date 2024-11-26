@@ -27,13 +27,17 @@ class ImageService
     public function getPictures($property_id)
     {
         $images = Image::where('property_id', $property_id)->get();
+        if(count($images) > 0){
+            $images->transform(function ($image) {
+                $image->image_path = str_replace('public/', 'storage/', $image->image_path);
+                return $image;
+            });
+        } else {
+            $images = null;
+        }
 
-        $images->transform(function ($image) {
-            $image->image_path = str_replace('public/', 'storage/', $image->image_path);
-            return $image;
-        });
-
-        return response()->json($images);
+//        return response()->json($images);
+        return $images;
     }
 
 }

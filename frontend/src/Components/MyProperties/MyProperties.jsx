@@ -16,7 +16,6 @@ function MyProperties() {
             });
             if (response.ok){
                 const foundData = await response.json();
-                console.log(foundData)
                 setMyProperties(foundData.properties)
             }
             else{

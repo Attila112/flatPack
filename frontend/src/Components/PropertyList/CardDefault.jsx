@@ -8,6 +8,7 @@ import {
 } from "@material-tailwind/react";
 import {Link} from "react-router-dom";
 import {useEffect, useState} from "react";
+import defaultImages from "../../images/DefaultImages.jsx"
 
 export function CardDefault(props) {
 
@@ -16,6 +17,10 @@ export function CardDefault(props) {
             return  num.toFixed().replace(/(\d)(?=(\d{3})+(?!\d))/g, '1 ')
         }
         const currencyPrice = currencyFormat(props.price)
+    function randomDefaultImage (){
+        const randomIndex = Math.floor(Math.random() * defaultImages.length);
+        setImg(defaultImages[randomIndex])
+    }
         
         useEffect(() => {
         const imgUrl = async () => {
@@ -32,6 +37,8 @@ export function CardDefault(props) {
         };
         if(props.hasPicture){
             imgUrl();
+        } else {
+            randomDefaultImage()
         }
     }, [props.hasPicture, props.id]);
     return (<div className="content-center" key={props.id}>

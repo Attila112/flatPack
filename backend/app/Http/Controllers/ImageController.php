@@ -55,8 +55,6 @@ class ImageController extends Controller
         }
         $image->image_path = asset('storage/' . str_replace('public/', '', $image->image_path));
 
-//        $image->image_path = str_replace('public/', 'storage/', $image->image_path);
-
         return response()->json([
             'success' => true,
             'image' => $image->image_path,
@@ -64,7 +62,7 @@ class ImageController extends Controller
     }
 
     public function getImages($property_id){
-        $images[] = $this->imageService->getPictures($property_id);
+        $images = $this->imageService->getPictures($property_id);
         if($images){
             return response()->json([
                 'success' => true,

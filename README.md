@@ -1,4 +1,4 @@
-
+![screenshot](images/mainPageOut.jpg)
 # FlatPack.com
 
 This project is a real estate search platform with a PHP Laravel backend and a React frontend. It enables users to browse and search for properties that match their preferences, providing a seamless experience for finding the perfect property. The system manages user authentication, property details, images, and messaging to streamline the property search process.
@@ -23,13 +23,14 @@ This project is a real estate search platform with a PHP Laravel backend and a R
 This project was developed by a team of three developers. A real estate search platform provides users with a convenient way to find and explore property listings tailored to their needs. It streamlines the search process by offering detailed information, filtering options, and image galleries, helping users make informed decisions. Such a platform is essential for connecting potential buyers or renters with property managers or owners, making the property search experience efficient and accessible."
 
 ---
-
+![screenshot](images/searchbar.jpg)
 ## Features
 
 - **Advanced Search and Filters:** Users can narrow down properties by location, price range, property type, and other criteria to find listings that meet their exact needs.
 - **User Authentication and Profiles:** Secure login for users to create accounts, save favorite properties, and manage personalized searches.
 - **Favorites and Wishlist:** Users can save properties to a favorites list, making it easy to keep track of potential choices and revisit them later.
 
+![screenshot](images/mainPageOut2.jpg)
 ---
 
 ## Installation
@@ -54,7 +55,7 @@ Rename .env.example file to .env inside your project root and fill the database 
 cd {flatPack/frontend}
 
 # Install dependencies
-npm i
+npm install
 
 # Run application
 npm run dev
@@ -72,23 +73,29 @@ cd {flatPack/backend}
 # Install dependencies
 composer install
 
+# Migrate Database
+php artisan migrate
+
 # Seed data
-php artisan db::seed
+php artisan db:seed
+
+# Connect hte libraries
+php artisan storage:link
 
 #run application
 php artisan serve
 ```
 
 ----------
-
+![screenshot](images/register.jpg)
 ## Usage
 
 1.  **Search for your properties**: After loading the website, you can choose from different properties with your parameters.
-2.  **Log in with your account**: If you registered oru page you can log in now.
+2.  **Log in with your account**: If you registered our page you can log in now.
 3.  **Register an account**: You can register our page with your e-mail and a password.
 4.  **Read more about property**: If you click on the Read More button you can read the parameters of a property.
 
-
+![screenshot](images/propertyCard1.jpg)
 ----------
 
 

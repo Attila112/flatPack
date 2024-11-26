@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 
 class FavoriteController extends Controller
 {
-    public function getUserFavorites(Request $request)
+    public function getUserFavorites()
     {
         $id = \auth('sanctum')->id();
         $user = User::find($id);
@@ -17,7 +17,7 @@ class FavoriteController extends Controller
             return response()->json(['error' => 'User not found'], 404);
         }
 
-        $favorites = $user->favorites; // This uses the 'favorites' relationship defined in the User model
+        $favorites = $user->favorites;
 
         return response()->json($favorites);
     }

@@ -40,7 +40,7 @@ body{
 }
 
 .read-the-docs {
-  color: #888;
+  color: #742929;
 }
 
 .property-card{
@@ -48,9 +48,10 @@ body{
 }
 
 .apply-square-background{
-  background-color: #9ca3af;
+  background-color: #ffffff;
   padding: 30px;
   border-radius: 10px;
+  margin: 20px;
 }
 .property-owner{
 
@@ -68,9 +69,9 @@ body{
   width: 100%;
 }
 
-td, th {
-  padding: 10px;
-  border: white solid 1px;
-  border-radius: 10px;
-}
+/*td, th {*/
+/*  padding: 10px;*/
+/*  border: #353535 solid 1px;*/
+/*  border-radius: 10px;*/
+/*}*/
 }

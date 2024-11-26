@@ -1,18 +1,16 @@
-import React, { useState } from "react";
+import  { useState } from "react";
 import {Button, Input} from "@material-tailwind/react";
-import {Link, useNavigate, useParams} from "react-router-dom";
+import {Link,  useParams} from "react-router-dom";
 
 function UploadImages() {
     const [imageFiles, setImageFiles] = useState([]);
     const propertyId = useParams().id;
 
-    console.log(propertyId);
-
     const handleImageChange = (e) => {
         setImageFiles([...e.target.files]);
     };
 
-    // Fetch and upload multiple images
+
     const handleUpload = async (e) => {
         e.preventDefault();
 
@@ -23,7 +21,6 @@ function UploadImages() {
 
         const formData = new FormData();
 
-        // Loop through each image and append to formData
         imageFiles.forEach((file, index) => {
             formData.append(`image_path[]`, file);
             formData.append('name', `picture ${index + 1}`);
@@ -34,13 +31,12 @@ function UploadImages() {
         const response = await fetch('http://127.0.0.1:8000/api/upload_image', {
             method: "POST",
             headers: {
-                "Accept": "application/json", // Only Accept header is needed
+                "Accept": "application/json",
             },
             body: formData,
         });
 
         const data = await response.json();
-        console.log(data);
 
         if (response.ok) {
            alert("The pictures uploaded")
@@ -48,7 +44,6 @@ function UploadImages() {
         } else {
             console.log("Error in uploading images", data);
         }
-        console.log(propertyId);
     };
 
     return (
@@ -62,18 +57,18 @@ function UploadImages() {
                     onChange={handleImageChange}
                     multiple
                 />
-                <button type="submit">Upload Images</button>
+                {/*<button type="submit">Upload Images</button>*/}
+                <div>
+
+                    <Link to={`/property/${propertyId}`} >
+                        <Button  type={'submit'} onClick={() => localStorage.setItem('propertyId', propertyId)}>
+                            Finish
+                        </Button>
+                    </Link>
+
+
+                </div>
             </form>
-            <div>
-
-                <Link to={`/property/${propertyId}`} >
-                    <Button onClick={() => localStorage.setItem('propertyId', propertyId)}>
-                        Finish
-                    </Button>
-                </Link>
-
-
-            </div>
             <Link to={`/upload`}>
                 <button>Back</button>
             </Link>

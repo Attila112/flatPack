@@ -21,7 +21,6 @@ function LogInForm(props) {
         e.preventDefault();
         setErrorMessage('');
         setLoading(true);
-        console.log('loading state is: ' + loading);
             fetch('http://127.0.0.1:8000/api/user/login', {
                 method : 'POST',
                 headers : {
@@ -36,9 +35,7 @@ function LogInForm(props) {
             })
                 .then((res) => res.json())
                 .then((data) => {
-                    console.log(data)
                     if (data.status){
-                        console.log("login was successful! Backend returned token")
                         localStorage.setItem('userToken', data.token);
                         localStorage.setItem('username', data.username);
                         localStorage.setItem('userId', data.id)

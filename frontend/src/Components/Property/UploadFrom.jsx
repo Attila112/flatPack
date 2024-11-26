@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Input, Select, Option } from "@material-tailwind/react";
 import { useNavigate } from "react-router-dom";
 
@@ -54,7 +54,6 @@ function UploadForm(props) {
         const data = await response.json();
         const propertyID = data.propertyId;
         if (response.ok) {
-            console.log("Property uploaded successfully");
             if(propertyID) {
                 navigate(`/upload/images/${propertyID}`);
             }
@@ -161,11 +160,12 @@ function UploadForm(props) {
                                </div>
 
                                <button
+                                   type={"submit"}
                             className='px-4 py-2 text-sm rounded-sm font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]'>
-                            Sign Up
+                            Next
                         </button>
+
             </form>
-                <button type="submit">Next</button>
         </div>
     );
 }

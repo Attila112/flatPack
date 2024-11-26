@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class PropertyFactory extends Factory
@@ -11,7 +12,7 @@ class PropertyFactory extends Factory
     {
         return [
             'title' => $this->faker->word(),
-            'user_id' => $this->faker->numberBetween(1,11),
+            'user_id' => User::inRandomOrder()->first()->id,
             'description' => $this->faker->paragraph(),
             'size' => $this->faker->numberBetween(20,300),
             'city' => $this->faker->city(),
