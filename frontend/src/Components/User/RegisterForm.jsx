@@ -33,7 +33,6 @@ export default function RegisterForm(props) {
                 return response.json();
             })
             .then((info) => {
-                console.log(info)
                 if (info.status) {
                     setResponseMessages({
                         type : 'confirm',
@@ -47,7 +46,6 @@ export default function RegisterForm(props) {
                     // window.location.reload()
                 } else {
 
-                    console.log("Registration failed:", info);
                     const errors = Object.values(info.errors);
                     setResponseMessages({
                         type : 'error',
@@ -56,14 +54,12 @@ export default function RegisterForm(props) {
                 }
             })
             .catch((e) => {
-                console.log("ERROR:", e.message);
                 setResponseMessages(['There was a fatal error in the system! Try reloading the page, or retry later']);
             })
             .finally(() => {
                 setLoading(false);
             });
 
-        console.log('registering....');
     }
 
     function setInfo(e) {

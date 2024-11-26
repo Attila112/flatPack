@@ -39,7 +39,7 @@ class PropertyService
             $query->where('description', 'like', '%' . $description . '%');
         }
         if ($size) {
-            $query->where('size', '=', $size);
+            $query->where('size', '<', $size);
         }
         if ($city) {
             $query->where('city', 'like', '%' . $city . '%');
@@ -84,15 +84,14 @@ class PropertyService
 
     public function getPropertyTypes()
     {
-//        $propertyTypes = Property::select('type')->distinct()->get();
+//        $propertyTypes = Property::distinct()->get(['type']);
+//        $typesArray = array();
+//        foreach ($propertyTypes as $propertyType) {
+//            $typesArray[] = $propertyType->type;
+//        }
+//        return $typesArray;
         $propertyTypes = Property::distinct()->get(['type']);
-//        var_dump($propertyTypes);
-//        return $propertyTypes;
-        $typesArray = array();
-        foreach ($propertyTypes as $propertyType) {
-            $typesArray[] = $propertyType->type;
-        }
-        return $typesArray;
+        return $propertyTypes->pluck('type')->toArray();
     }
 
     public function add(Request $request, $user_id)
@@ -113,7 +112,6 @@ class PropertyService
             'garage' => 'required|boolean',
             'facing' => 'required|string',
             'price' => 'required|integer',
-//            'hasPicture' => 'required'
 
         ]);
         $property = Property::create([

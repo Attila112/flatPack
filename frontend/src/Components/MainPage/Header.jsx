@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import logo from "../../images/Logo.png"
 
 function Header(props) {
     const navigate = useNavigate();
@@ -14,12 +15,13 @@ function Header(props) {
     if (props.user) {
         return(
         <header
-        className='flex shadow-lg py-4 px-4 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50 sticky top-0 fixed left-0 right-0 top-0'>
+            className='flex shadow-lg bg-gray-50 opacity-80 py-4 px-4 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50 sticky top-0 fixed left-0 right-0 top-0'>
         <div className='flex flex-wrap items-center justify-between gap-4 w-full'>
-            <a href="/" 
-               className="lg:absolute max-lg:left-10 lg:top-2/4 lg:left-2/4 lg:-translate-x-1/2 lg:-translate-y-1/2">
-                <img src="https://readymadeui.com/readymadeui.svg" alt="logo" className='w-36'/>
-            </a>
+             <Link to={"/"}>
+               <div className="lg:absolute max-lg:left-10 lg:top-2/4 lg:left-2/4 lg:-translate-x-1/2 lg:-translate-y-1/2">
+                <img  src={logo} alt="logo" className='max-h-16 max-w-full'/>
+               </div>
+            </Link>
 
             <div className='flex items-center ml-auto space-x-6'>
                     <button
@@ -53,11 +55,11 @@ function Header(props) {
 
     return (
         <header
-            className='flex shadow-lg py-4 px-4 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50 sticky top-0 fixed left-0 right-0 top-0'>
+            className='flex shadow-lg bg-gray-50 opacity-80 py-4 px-4 sm:px-10 font-[sans-serif] min-h-[70px] tracking-wide relative z-50 sticky top-0 fixed left-0 right-0 top-0'>
             <div className='flex flex-wrap items-center justify-between gap-4 w-full'>
                 <a href="/" 
                    className="lg:absolute max-lg:left-10 lg:top-2/4 lg:left-2/4 lg:-translate-x-1/2 lg:-translate-y-1/2">
-                    <img src="https://readymadeui.com/readymadeui.svg" alt="logo" className='w-36'/>
+                    <img src={logo} alt="logo" className='max-h-16 max-w-full'/>
                 </a>
 
                 <div className='flex items-center ml-auto space-x-6'>

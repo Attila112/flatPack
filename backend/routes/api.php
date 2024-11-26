@@ -1,7 +1,9 @@
 <?php
 
 use App\Http\Controllers\FavoriteController;
+use App\Http\Controllers\InfoController;
 use App\Http\Controllers\MessageController;
+use App\Http\Controllers\NewsLetterController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\UserController;
 use Illuminate\Http\Request;
@@ -50,4 +52,7 @@ Route::middleware('auth:sanctum')->post('/user/favorites', [FavoriteController::
 Route::middleware('auth:sanctum')->post('/favorites', [FavoriteController::class, 'addFavorite']);
 Route::middleware('auth:sanctum')->post('/favorites/delete', [FavoriteController::class, 'removeFavorite']);
 Route::post('/favorites/isin', [FavoriteController::class, 'checkIsItIn']);
+
+Route::post('/infomail', [InfoController::class, 'infoMail']);
+Route::post('/subscribe', [NewsletterController::class, 'subscribe']);
 

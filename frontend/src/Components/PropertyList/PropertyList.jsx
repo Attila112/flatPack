@@ -3,6 +3,7 @@ import {CardDefault} from "./CardDefault.jsx";
 
 function PropertyList(props) {
 
+
     if (props.properties.length === 0){
         return (
             <div className={'nothing'}>

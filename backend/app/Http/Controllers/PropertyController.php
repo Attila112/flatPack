@@ -2,14 +2,14 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Property;
+
 use App\Services\PropertyService;
 use Illuminate\Http\Request;
-use PHPUnit\Util\Exception;
+
 
 class PropertyController extends Controller
 {
-    protected PropertyService $propertyService;
+    public PropertyService $propertyService;
     public function __construct()
     {
         $this->propertyService = new PropertyService();
@@ -131,7 +131,7 @@ class PropertyController extends Controller
 
 
     }
-    public function getAllPropertiesToUser (Request $request){
+    public function getAllPropertiesToUser (){
         $id = \auth('sanctum')->id();
         $properties = $this->propertyService->getPropertiesByUserId($id);
         if($properties){
@@ -147,13 +147,4 @@ class PropertyController extends Controller
         }
 
     }
-
-//    public function getPropertiesNumber()
-//    {
-//        $properties = Property::all()->count();
-////        $propertiesNumber = Property::->count();
-////        var_dump($properties);
-//        return response()->json($properties, 200);
-//    }
-
 }

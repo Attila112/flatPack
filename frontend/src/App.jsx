@@ -13,6 +13,9 @@ import PropertyCard from "./Components/Property/PropertyCard.jsx";
 import UploadImages from "./Components/Property/UploadImages.jsx";
 import MyFavorites from "./Components/Favorites/MyFavorites.jsx";
 import MyProperties from "./Components/MyProperties/MyProperties.jsx";
+import AboutUs from "./Components/Others/AboutUs.jsx";
+import ContactUs from "./Components/Others/ContactUs.jsx";
+import Subscribe from "./Components/MainPage/Subscribe.jsx";
 
 function App() {
     const [user, setUser] = useState(localStorage.getItem('userToken'))
@@ -38,7 +41,10 @@ function App() {
                 <Route path={'/property/:id'} element={<PropertyCard/>}/>
                 <Route path={'/favorites'} element={<MyFavorites/>}/>
                 <Route path={'/myproperties'} element={<MyProperties/>}/>
+                <Route path={'/aboutus'} element={<AboutUs/>}/>
+                <Route path={'/contactus'} element={<ContactUs/>}/>
             </Routes>
+            <Subscribe/>
             <Footer/>
         </BrowserRouter>
     )

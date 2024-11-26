@@ -5,7 +5,6 @@ function ChangeButton(props) {
     const propertyId = useParams()
     const navigate = useNavigate()
     const fetchDeleteProperty = async () => {
-        console.log(propertyId.id)
         const response = await fetch(`http://127.0.0.1:8000/api/deleteProperty/${propertyId.id}`, {
             method: "DELETE",
         })
@@ -18,8 +17,7 @@ function ChangeButton(props) {
     }
     return (
         <div>
-            <button className={'button'} onClick={deletePropertyClick}>Delete</button>
-            <button className={'button'}>Update</button>
+            <button className={'px-4 py-2 w-32 h-12 m-2 text-sm rounded-sm font-bold text-white border-2 border-[#007bff] bg-[#007bff] transition-all ease-in-out duration-300 hover:bg-transparent hover:text-[#007bff]'} onClick={deletePropertyClick}>Delete</button>
         </div>
     );
 }
